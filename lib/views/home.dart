@@ -1,7 +1,7 @@
 import 'package:activestar/controllers/appcontroller.dart';
+import 'package:activestar/views/clanky.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:math';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,7 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  double value = 0.0;
   @override
   Widget build(BuildContext context) {
     return GetX<AppController>(
@@ -56,7 +55,9 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(Clanky());
+                              },
                               icon: Image.asset(
                                 'assets/file-text.png',
                                 width: 24,
@@ -103,10 +104,13 @@ class _HomePageState extends State<HomePage> {
                                 top: 10,
                               ),
                               Center(
-                                child: Image.asset(
-                                  'assets/logo.png',
-                                  width: 120,
-                                  height: 120,
+                                child: Hero(
+                                  tag: "logo",
+                                  child: Image.asset(
+                                    'assets/logo.png',
+                                    width: 120,
+                                    height: 120,
+                                  ),
                                 ),
                                 // top: 10,
                                 // left: MediaQuery.of(context).size.width / 4,
@@ -249,6 +253,71 @@ class _HomePageState extends State<HomePage> {
                             height: 20,
                             width: MediaQuery.of(context).size.width / 1.2,
                             child: slider()),
+                        Padding(
+                          padding: const EdgeInsets.all(28.0),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 1.2,
+                            height: 150,
+                            color: Colors.transparent,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  height: 140,
+                                  width: 140,
+                                  decoration: const BoxDecoration(
+                                    color: Color.fromRGBO(222, 192, 60, 1),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Image.asset('assets/image 21.png'),
+                                      const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text("Produkty",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold)),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 25,
+                                ),
+                                Container(
+                                  height: 140,
+                                  width: 140,
+                                  decoration: const BoxDecoration(
+                                    color: Color.fromRGBO(222, 192, 60, 1),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Image.asset('assets/image 22.png',
+                                          width: 123, height: 85),
+                                      const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "Clanky",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
